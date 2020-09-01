@@ -1,5 +1,6 @@
 const sidebar = require('./sidebar.js')
-console.log("标签"+JSON.stringify(sidebar))
+
+
 module.exports = {
     title: "AlonG",
     discription: "ALonG的博客,blog",
@@ -17,10 +18,18 @@ module.exports = {
         repo: 'longhaoxuan/blog',
         nav: [
             { text: '博客', link: '/blog/' },
-            { text: '日记', link: '/node/' }
+            { text: '日记', link: '/note/' }
         ],
         sidebar
-
-    }
+    },
+    lastUpdated: "更新时间",
+    plugins: [
+        ['@vuepress/pwa', {
+          serviceWorker: true,
+          updatePopup: true
+        }],
+        ['@vuepress/medium-zoom', true],
+        ['@vuepress/back-to-top', true],
+      ],
 
 }
