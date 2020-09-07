@@ -2,7 +2,7 @@ const sidebar = require('./sidebar.js')
 
 
 module.exports = {
-    title: "AlonG",
+    title: "ALonG",
     discription: "ALonG的博客,blog",
     head: [
         ['link', { rel: 'icon', href: '/ALONG.png' }]
@@ -18,11 +18,12 @@ module.exports = {
         repo: 'longhaoxuan/blog',
         nav: [
             { text: '博客', link: '/blog/' },
-            { text: '日记', link: '/note/' }
+            { text: '随笔', link: '/note/' }
         ],
-        sidebar
+        sidebarDepth:3,
+        sidebar,
+        lastUpdated: "更新时间",
     },
-    lastUpdated: "更新时间",
     plugins: [
         ['@vuepress/pwa', {
           serviceWorker: true,
@@ -30,6 +31,7 @@ module.exports = {
         }],
         ['@vuepress/medium-zoom', true],
         ['@vuepress/back-to-top', true],
+        ['@vuepress/last-updated']
       ],
 
 }

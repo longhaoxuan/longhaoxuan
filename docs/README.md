@@ -1,16 +1,16 @@
 ---
 home: true
 heroImage: /hero.jpg
-heroText: AlonG
+heroText: ALonG
 tagline: 做自己的信仰
-actionText: 快速上手 →
+actionText: 快速阅读 →
 actionLink: /blog/
 features:
-- title: 福
-  details: 
-- title: 舍
-  details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
-- title: 离
-  details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
+- title: 读书
+  details: 书卷伴青灯，足以慰风尘
+- title: 生活
+  details: 从容坦荡，心装万物
+- title: 旅行
+  details: 见识天地，遇见自己
 footer: MIT Licensed | Copyright © 2020-present AlonG
 ---
