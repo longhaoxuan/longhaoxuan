@@ -4,6 +4,30 @@
 
 javascript包含，ECMAScript,DOM,BOM。支持uinicode字符标准。
 
+:::tip DOM(Documennt Object Model)
+
+- 针对于XML创建扩展用于HTML的API(Application Programming Interface)接口
+- DOM视图 View
+- DOM事件 Events
+- DOM样式 Style
+- DOM遍历和范围 Traversal and Range
+- DOM加载和保存 Load and Save
+- DOM验证 Validation
+:::
+
+:::tip BOM(Browser Object Model)
+
+- 操作浏览器的接口　不同浏览器实现不同
+- 弹出新窗口
+- 提供浏览器详细信息 navigator
+- 提供页面加载页面信息 Location
+- 提供分辨率信息 screen
+- Cookie
+- XMLHttpRequest
+- ie ActiveXObject
+- window
+:::
+
 xhtml中引入script标签：
 
 ```xhtml
@@ -15,6 +39,7 @@ xhtml内需要cData，面对不支持的xhtml的加注释hack
 ```
 
 ## 基础的的基础
+
 ### 数据类型（5简单+1复杂）原始类型（primitive type）
 
 1. undefined： [变量初始化]
@@ -101,6 +126,54 @@ with(location){
 - 复制引用类型，复制的是堆内存指针。
 - 参数只能按值传递
 
+```JS
+function setName(obj){
+  obj.name="along"
+  obj = new Object()
+  obj.name = "song"
+}
+var person = new Object()
+setName(person)
+console.log(person.name) // along
+```
+
+**typeof 检测非objct，null还是好用的**
+
+**instanceof**根据原型链识别
+
+```js
+variable instanceof constructor
+person instanceof Object
+person instanceof Array
+person instanceof RegExp
+```
+
+Object[详细文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object)
+
+**Object 构造函数的方法**
+
+| 方法 | 描述 |
+| --------- | --------------------------- |
+| Object.assign()|  通过复制一个或多个对象来创建一个新的对象。|
+| Object.create() | 使用指定的原型对象和属性创建一个新对象。|
+| Object.defineProperty() | 给对象添加一个属性并指定该属性的配置。 |
+| Object.defineProperties() | 给对象添加多个属性并分别指定它们的配置。 |
+| Object.entries() | 返回给定对象自身可枚举属性的 [key, value] 数组。 |
+| Object.freeze() | 冻结对象：其他代码不能删除或更改任何属性。 |
+| Object.getOwnPropertyDescriptor() | 返回对象指定的属性配置。 |
+| Object.getOwnPropertyNames() | 返回一个数组，它包含了指定对象所有的可枚举或不可枚举的属性名。 |
+| Object.getOwnPropertySymbols() | 返回一个数组，它包含了指定对象自身所有的符号属性。 |
+| Object.getPrototypeOf() | 返回指定对象的原型对象。 |
+| Object.is() | 比较两个值是否相同。所有 NaN 值都相等（这与==和===不同）。 |
+| Object.isExtensible() | 判断对象是否可扩展。 |
+| Object.isFrozen() | 判断对象是否已经冻结。 |
+| Object.isSealed() | 判断对象是否已经密封。 |
+| Object.keys() | 返回一个包含所有给定对象自身可枚举属性名称的数组。 |
+| Object.preventExtensions() | 防止对象的任何扩展。 |
+| Object.seal() | 防止其他代码删除对象的属性。 |
+| Object.setPrototypeOf() | 设置对象的原型（即内部 [[Prototype]] 属性）。 |
+| Object.values() | 返回给定对象自身可枚举值的数组。
+
 ### 数组操作
 
 ### 正则匹配
@@ -111,7 +184,7 @@ with(location){
 
 ### xml
 
-# promise
+## promise
 
 ```javascript
 new 立即执行，then
@@ -572,6 +645,39 @@ app.use(statics(
 
 
 
+## 闭包（closure）
+
+> 闭包是函数和声明该函数的词法环境的组合
+> 闭包就是能够读取其他函数内部变量的函数。
+[闭包](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures)
+
+### 闭包的作用
+
+- 实现共有变量
+ 累加器
+- 可以做缓存
+- 可以是实现封装，属性私有化
+- 模块开发防止污染全局变量
+
+## 立即执行函数
+
+> 执行后立即销毁
+> 实际上表达式都可以被执行
+> eater
+> Person
+
+```js
+    (function(){}()); //W3c
+    (function(){})();
+```
+
+## 函数声明转表达式
+
+```js
++ function text() {};
+- function tect() {};
+! function tect() {};
+```
 
 
 
