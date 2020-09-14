@@ -105,3 +105,4 @@ dist
 
 # along
 package-lock.json
+docs/.vuepress/dist
