@@ -11,7 +11,7 @@ for (let item of blogs) {
                 title: RegExp.$1,
                 children: [RegExp.$1 + "/" + RegExp.$2]
             })
-            map[RegExp.$1]=true
+            map[RegExp.$1] = true
         } else {
             for (let i = 0; i < bloglist.length; i++) {
                 if (bloglist[i].title == RegExp.$1) {

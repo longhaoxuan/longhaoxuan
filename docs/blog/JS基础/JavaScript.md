@@ -38,7 +38,7 @@ xhtml内需要cData，面对不支持的xhtml的加注释hack
 </script>
 ```
 
-## 基础的的基础
+## 基础的基础概述
 
 ### 数据类型（5简单+1复杂）原始类型（primitive type）
 
@@ -48,7 +48,7 @@ xhtml内需要cData，面对不支持的xhtml的加注释hack
 4. number： [IEEE754格式规范：**浮点数值有问题**]，[0:八进制，0x：16进制]
 5. string
 6. symbol*新类型
-7. object
+7. object[详细](#object)
 
 因为js变量是**松散**的，不需要太多的类型，变量仅是**占位符**。
 
@@ -60,20 +60,6 @@ number数值转换[Number(),parseInt(),parseFlot()]
 String()和toString()
 
 - string：存在toString方法调用，null，undefined 返回字面量。
-
-**Object对象**
-
-- 数据和功能的集合
-
-Object（）每个实力都具有的方法:
-
-- constructor:保存创建当前对象的函数
-- hasOwnProperty(propertyName):检查给定的属性(propertyName)在当前实例中是否存在，不算原型。
-- isPertotypeOf(object):检测传入的对象(object),是否是当前对象的原型。
-- propertyIsEnumberable(propertyName):检测给定的属性(propertyName)能否for in。
-- toLocaleString():返回对象的字符串表示，与执行环境相关。
-- toString():返回对象的字符串表示
-- toValueOf():通常和toString()相同，字符串，数值或布尔值。
 
 ### 操作符
 
@@ -97,14 +83,14 @@ null === undefined //false
 - do—while
 - while
 - for
-- for-in
-  都会被遍历，但是没有顺序。
+- for-in 都会被遍历，但是没有顺序。
 - switch():case[使用的是全等操作，不会触发类型转换]
 - with
 
 大量使用with性能会下降，[此法欺骗](#词法欺骗-不推荐-会降低性能)
 
 ```js
+// with 例
 var qs=location.search.substring(1)
 var hostName=location.hostname
 var url=location.href
@@ -116,15 +102,20 @@ with(location){
 }
 ```
 
-### 基本类型和引用类型
+### 变量作用域和内存问题
 
-基本类型：安值引用，基本类型不能添加属性
+基本类型值：安值引用，基本类型不能添加属性（undefiend,Null,boolean,number,string)**别着急**
 
-引用类型：
+引用类型值:是[引用类型](#引用类型)的实例 **引用类型是数据结构**
 
 - 不能直接操作内存，所以安引用访问的（不严谨，复制是）
-- 复制引用类型，复制的是堆内存指针。
-- 参数只能按值传递
+- 复制引用类型，复制的是堆内存指针，复制的是引用。
+
+::: warning 意淫
+👆boolen，number，string是特殊引用类型，但是他们的实例是基本类型值
+
+👇参数只能**按值**传递，书上说的，下面的例子是证明，但是我觉得是new的问题(nwe 开辟了新的内存地址，切断了)
+:::
 
 ```JS
 function setName(obj){
@@ -133,11 +124,12 @@ function setName(obj){
   obj.name = "song"
 }
 var person = new Object()
-setName(person)
+
+setName(person)  // 传入对象 
 console.log(person.name) // along
 ```
 
-**typeof 检测非objct，null还是好用的**
+**typeof 检测非objct，null还是好用的**numuer,undefined,boolean,string
 
 **instanceof**根据原型链识别
 
@@ -148,9 +140,51 @@ person instanceof Array
 person instanceof RegExp
 ```
 
-Object[详细文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object)
+#### 首次谈及执行环境和作用域
 
-**Object 构造函数的方法**
+- 执行环境（execution context):定义了『变量或函数有权访问的数据』决定了『』的行为，有一个关联的VO
+- 变量对象（variable object）：『变量和函数』都在这个里面，无法访问，解析器可以
+- 活动对象（activation Object）：ac最开始只包含arguments对象，**这里我理解为：执行到这里，这里的作用域链就变成了ac，ac=作用域链**
+
+::: warning 意淫
+
+- 说说自己的理解，老外的东西说的是贼绕，**"代码在一个环境执行时，会创建VO的一个作用于链"**，作用域链是VO组成的（**VO=作用域?**），那VO就是作用域！另一本书说 **作用域是存储变量的规则**
+
+不同时期的产物，可能是同一个东西，不必太过纠结。
+:::
+
+#### 首次谈及垃圾清除
+
+node[垃圾清除](https://blog.risingstack.com/node-js-at-scale-node-js-garbage-collection/)
+
+- 标记清除
+- 引用计数
+
+#### 首次谈及管理内存
+
+因为出于安全，浏览器分配的内存比（桌面应用）的少，『chrome牛逼』。
+
+- 解除引用：数据不用最好手动设置null
+  
+## 引用类型
+
+### Object对象
+
+- 数据和功能的集合
+- Object[详细文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object)
+
+**Object（）每个实力都具有的方法**：
+| 方法 | 描述 |
+| ------ | --------- |
+| constructor | 保存创建当前对象的函数|
+| hasOwnProperty(propertyName) | 检查给定的属性(propertyName)在当前实例中是否存在，不算原型。|
+| isPertotypeOf(object) | 检测传入的对象(object),是否是当前对象的原型。|
+| propertyIsEnumberable(propertyName) | 检测给定的属性(propertyName)能否for in。|
+| toLocaleString() | 返回对象的字符串表示，与执行环境相关。|
+| toString() | 返回对象的字符串表示|
+| toValueOf() | 通常和toString()相同，字符串，数值或布尔值。|
+
+**Object 构造函数的方法**：
 
 | 方法 | 描述 |
 | --------- | --------------------------- |
@@ -174,9 +208,13 @@ Object[详细文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Ref
 | Object.setPrototypeOf() | 设置对象的原型（即内部 [[Prototype]] 属性）。 |
 | Object.values() | 返回给定对象自身可枚举值的数组。
 
-### 数组操作
+### 2.Array
 
-### 正则匹配
+### 3.Date类型
+
+### 4.RegExp正则匹配
+
+### 5.Function
 
 ### 请求响应
 
@@ -334,6 +372,7 @@ foo(o2) // o2.a undefined,  a = 2 会被泄露到全局作用域
 1. 首先要生声明一个【具名】函数foo()（污染全局作用域）
 
 1. 必须调用函数foo()
+
 #### IIFE（立即执行函数）【immediately invoked function expression】
 
 ```plain
