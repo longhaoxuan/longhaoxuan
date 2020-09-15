@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "cnpm": "^6.1.1",
     "vuepress": "^1.5.4"
   },
   "name": "longhaoxuan",
