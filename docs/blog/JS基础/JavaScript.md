@@ -2,6 +2,10 @@
 
 [[toc]]
 
+:::tip 写在前面
+尽信书则不如无书，红宝书第第三版有很多翻译的有歧义，而且很多话说的很绕，第四版有很大改进，但也并非完美无缺，下面笔记也会有很多变更的地方，希望自己一个月之内通读完，然后进入下一本
+:::
+
 javascript包含，ECMAScript,DOM,BOM。支持uinicode字符标准。
 
 :::tip DOM(Documennt Object Model)
@@ -40,7 +44,7 @@ xhtml内需要cData，面对不支持的xhtml的加注释hack
 
 ## 基础的基础概述
 
-### 数据类型（5简单+1复杂）原始类型（primitive type）
+### 数据类型（5简单（原始类型（primitive type））+1复杂） 
 
 1. undefined： [变量初始化]
 2. null： [空对象指针，对象初始化最好指定]
@@ -84,6 +88,8 @@ null === undefined //false
 - while
 - for
 - for-in 都会被遍历，但是没有顺序。
+- **for-of**新：用于遍历可迭代的对象
+- **for-await-of**：支持生成promise的可迭代异步对象。
 - switch():case[使用的是全等操作，不会触发类型转换]
 - with
 
@@ -104,9 +110,9 @@ with(location){
 
 ### 变量作用域和内存问题
 
-基本类型值：安值引用，基本类型不能添加属性（undefiend,Null,boolean,number,string)**别着急**
+原始值（primitive value）~~基本类型值~~：安值引用，基本类型不能添加属性（undefiend,Null,boolean,number,string，symbol)**别着急**
 
-引用类型值:是[引用类型](#引用类型)的实例 **引用类型是数据结构**
+引用值（reference value）~~引用类型值~~:是[引用类型](#引用类型)的实例 **引用类型是数据结构**
 
 - 不能直接操作内存，所以安引用访问的（不严谨，复制是）
 - 复制引用类型，复制的是堆内存指针，复制的是引用。
@@ -125,11 +131,11 @@ function setName(obj){
 }
 var person = new Object()
 
-setName(person)  // 传入对象 
+setName(person)  // 传入对象
 console.log(person.name) // along
 ```
 
-**typeof 检测非objct，null还是好用的**numuer,undefined,boolean,string
+**typeof 检测原始值~~非objct，null还是好用的~~**numuer,undefined,boolean,string
 
 **instanceof**根据原型链识别
 
@@ -153,20 +159,50 @@ person instanceof RegExp
 不同时期的产物，可能是同一个东西，不必太过纠结。
 :::
 
+### 变量声明
+
+- var
+  - 提升（hoisting）
+- let
+  - 块级作用域，重复声明报错syntaxError
+  - 也会提升，因为‘暂时性死区’导致不能用（temporal dead zone）
+- const
+  - 一经声明不可改变，对象的键除外
+  - 同样块级作用域
+  - 如果非要对象不变使用Object.freeze(obj)
+  - 会暗示为单一类型，编译器会将实例替换成实际值，减少查找，增加速度
+
+```js
+const a ={}
+a.b = 3 //不会报错
+a = {} // TypeError
+```
+
 #### 首次谈及垃圾清除
 
 node[垃圾清除](https://blog.risingstack.com/node-js-at-scale-node-js-garbage-collection/)
 
 - 标记清除
 - 引用计数
+- const 和 let 会更早的让垃圾回收程序介入 优化性能
 
 #### 首次谈及管理内存
 
 因为出于安全，浏览器分配的内存比（桌面应用）的少，『chrome牛逼』。
 
 - 解除引用：数据不用最好手动设置null
-  
-## 引用类型
+- 内存泄漏
+  - 意外全局声明，函数内声明变量千万记得加let const或var
+  - 定时器setTimeout回到函数引用了外部变量
+  - 闭包
+
+## 基本引用类型
+
+> 漂亮文章结构北改了大Function和Object都被提升到新的章节了，原来这张叫基本引用类型，现在一分为三，后续还有集合引用类型，函数
+
+- Date
+- RegRxp
+
 
 ### Object对象
 
