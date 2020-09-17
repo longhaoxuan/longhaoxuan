@@ -196,6 +196,15 @@ node[垃圾清除](https://blog.risingstack.com/node-js-at-scale-node-js-garbage
   - 定时器setTimeout回到函数引用了外部变量
   - 闭包
 
+```js
+// 来个泄露的例子吧
+(function(){
+var a  = b = 7
+})()
+console.log(b) // 7
+console.log(a)  // 报错
+```
+
 ## 基本引用类型
 
 > 漂亮文章结构北改了大Function和Object都被提升到新的章节了，原来这张叫基本引用类型，现在一分为三，后续还有集合引用类型，函数
