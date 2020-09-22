@@ -74,15 +74,44 @@ function addX(y){
 addX(2)(3)
 ```
 
-## 函数组合
+### 函数组合
 
 - 函数组合为了解决 h(g(f(x)))
 储存中间按逻辑
+
+```js
+const compose = (f, g) => (x => f(g(x)));
+var first = arr => arr[0];
+var reverse = arr => arr.reverse();
+var last = compose(first, reverse);
+last([1,2,3,4,5]);
+```
+
+### Point Free
+
+- 减少不必要的命名，让代码保持简洁和通用。
+
+```js
+var toUpperCase = word => word.toUpperCase();
+var split = x => (str => str.split(x));
+var f = compose(split(' '), toUpperCase);
+f("abcd efgh");
+```
 
 ## 声明式和命名式
 
 优点：纯函数完全不用考虑
 缺点：不纯函数会产生副作用
+
+```js
+//命令式
+let CEOs = [];
+for(var i = 0; i < companies.length; i++)
+ CEOs.push(companies[i].CEO)
+}
+//声明式
+let CEOs = companies.map(c => c.CEO);
+```
 
 ## 惰性函数
 
