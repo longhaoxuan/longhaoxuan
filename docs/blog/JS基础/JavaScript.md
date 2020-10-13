@@ -79,6 +79,7 @@ String()和toString()
 ```javascript
 null == undefined //true
 null === undefined //false
+null == false // false
 ```
 
 ### 语句
@@ -209,9 +210,36 @@ console.log(a)  // 报错
 
 > 漂亮文章结构北改了大Function和Object都被提升到新的章节了，原来这张叫基本引用类型，现在一分为三，后续还有集合引用类型，函数
 
-- Date
-- RegRxp
+- Date[MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date)
+- RegRxp // TODO:正则小本本要写笔记
 
+### 基本包装类型（Boolean,Number,String）
+
+- 执行机制：
+  1. 创建String类的实例，隐式调用new String()
+  2. 在实例上调用指定方法
+  3. 销毁实例
+- 引用值和基本包装类型的区别是：生命周期不一样，只存在代码执行的瞬间，执行后立即销毁
+- 不能为基本类型添加属性和方法
+- 可以显式声明
+
+```js
+var s1 = "sdadf"
+s1.color = "red" // undefiend
+// 来了
+console.log(typeof s1) // string
+s1 = new String("sdfasf")
+console.log(typeof s1) // object
+```
+
+### 单体内置对象
+
+另外两个内置对象
+
+1. Global
+   不存在的，兜底对象，
+2. Math
+   随机值：num = Math.floor(Math.random()*可能值的总数+第一个肯能值)
 
 ### Object对象
 
