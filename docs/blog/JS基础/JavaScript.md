@@ -56,14 +56,25 @@ xhtml内需要cData，面对不支持的xhtml的加注释hack
 
 因为js变量是**松散**的，不需要太多的类型，变量仅是**占位符**。
 
+#### Nuamber
+
 number数值转换[Number(),parseInt(),parseFlot()]
 
-- null:0
-- obj：先valueOf(),后toString()
+1. null:0
+2. undefined：NaN
+3. obj：先valueOf(),后toString()
 
-String()和toString()
+#### String
 
-- string：存在toString方法调用，null，undefined 返回字面量。
+- 创建后不可改变，只能销毁在新建
+- toString():null,undefined没有toString方法TypeError。
+- String()：存在toString方法调用，null，undefined 返回字面量。
+- 字面量模板（ES6）:`${}`
+
+#### Symbol(ES6)
+
+- 唯一不可改变。typeof 会返回symbol
+- Symbol()初始化，可以传参，仅起到描述作用，不影响唯一性
 
 ### 操作符
 
@@ -89,7 +100,7 @@ null == false // false
 - while
 - for
 - for-in 都会被遍历，但是没有顺序。
-- **for-of**新：用于遍历可迭代的对象
+- **for-of**新：用于遍历可迭代的对象 //TODO:补全
 - **for-await-of**：支持生成promise的可迭代异步对象。
 - switch():case[使用的是全等操作，不会触发类型转换]
 - with
