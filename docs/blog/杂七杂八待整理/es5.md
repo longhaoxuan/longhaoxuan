@@ -23,4 +23,8 @@ function cloneBuffer(buffer,isDeep){
     }
     const length = buffer.length()
     const result = allocUnsafe?allocUnsafe(length):new buffer.constructor(length);
+    buffer.copy(result)
+    return result
 }
+
+```
