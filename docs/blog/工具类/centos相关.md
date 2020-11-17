@@ -1,4 +1,4 @@
-# CENTOS相关
+# CentOS相关
 
 ## IP配置
 
