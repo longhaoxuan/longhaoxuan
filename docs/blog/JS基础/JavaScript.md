@@ -73,7 +73,7 @@ number数值转换[Number(),parseInt(),parseFlot()]
 
 #### Symbol(ES6)
 
-- 唯一不可改变。typeof 会返回symbol
+- 原始值唯一不可改变。typeof 会返回symbol
 - Symbol()初始化，可以传参，仅起到描述作用，不影响唯一性
 
 ### 操作符
@@ -90,7 +90,28 @@ number数值转换[Number(),parseInt(),parseFlot()]
 ```javascript
 null == undefined //true
 null === undefined //false
+null == false // false
 ```
+
+#### 位操作符
+
+- 按位非（～）:0变1
+- 按位与（&）：同1得1
+- 按位或（|）：有1得1
+- 安位异或（^）：不同得1
+
+#### 布尔作符（逻辑）
+
+- 逻辑非（！）:真变假，假变真
+- 逻辑与（&&）：一假则假，真真得真
+  - 第一个是false 这直接返回
+  - 第一个是对象返回第二个
+  - 都是对象 返回第二个
+  - 存在null，NaN,undefined 返回 null.NaN,undefined
+- 按位或（||）：一真则真，假假得假
+  - 第一个是ture直接返回
+  - 第一个是对象，直接返回
+  - 都是null,NaN,undefined,返回null，NaN,undefined,否则返回第二个
 
 ### 语句
 
@@ -99,7 +120,7 @@ null === undefined //false
 - while
 - for
 - for-in 都会被遍历，但是没有顺序。
-- **for-of**新：用于遍历可迭代的对象 //TODO:补全
+- **for-of**新：用于遍历可迭代的对象  //TODO:补全
 - **for-await-of**：支持生成promise的可迭代异步对象。
 - switch():case[使用的是全等操作，不会触发类型转换]
 - with
@@ -118,6 +139,10 @@ with(location){
   var url=href
 }
 ```
+
+#### 标签语句
+
+// TODO 标签语句
 
 ### 变量作用域和内存问题
 
@@ -221,6 +246,36 @@ console.log(a)  // 报错
 
 > 漂亮文章结构北改了大Function和Object都被提升到新的章节了，原来这张叫基本引用类型，现在一分为三，后续还有集合引用类型，函数
 
+- Date[MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date)
+- RegRxp // TODO:正则小本本要写笔记
+
+### 基本包装类型（Boolean,Number,String）
+
+- 执行机制：
+  1. 创建String类的实例，隐式调用new String()
+  2. 在实例上调用指定方法
+  3. 销毁实例
+- 引用值和基本包装类型的区别是：生命周期不一样，只存在代码执行的瞬间，执行后立即销毁
+- 不能为基本类型添加属性和方法
+- 可以显式声明
+
+```js
+var s1 = "sdadf"
+s1.color = "red" // undefiend
+// 来了
+console.log(typeof s1) // string
+s1 = new String("sdfasf")
+console.log(typeof s1) // object
+```
+
+### 单体内置对象
+
+另外两个内置对象
+
+1. Global
+   不存在的，兜底对象，
+2. Math
+   随机值：num = Math.floor(Math.random()*可能值的总数+第一个肯能值)
 - Date
   
 ### RegRxp
@@ -277,6 +332,8 @@ console.log(a)  // 报错
 ### 3.Date类型
 
 ### 4.RegExp正则匹配
+
+// TODO 小书
 
 ### 5.Function
 
