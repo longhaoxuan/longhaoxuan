@@ -18,3 +18,10 @@
 - git先装brew
 
 <!-- TODO 先这样子吧困了 -->
+
+## 来了来了更新M1
+
+### brew问题
+
+- 右键终端（terminal）-> 显示简介（Get info）-> 勾选使用Rosetta打开（open using Rosetta）
+
