@@ -107,5 +107,9 @@ dist
 package-lock.json
 docs/.vuepress/dist
 
-*/.DS_Store*
+**/.DS_Store
+*/.DS_Store
+*.DS_Store
 .DS_Store*
+.DS_Store
+.DS_Store?
