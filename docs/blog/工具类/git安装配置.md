@@ -26,7 +26,7 @@ yum -y install git
 ```sh
 git config --global user.name "along"
 git config --global user.email "longgev596@"
-ssh-keygen -t rsa -C "youremail@example.com"  //生成key
+ssh-keygen -t rsa -C "youremail@example.com"  //生成key 将key 传到git
 ```
 
 ## 基础命令
@@ -67,3 +67,7 @@ git merge <name>               // 合并某分支到当前分支
 git branch -d <name>           // 删除分支
 git log --graph                // 看到分支合并图
 ```
+
+## 特殊状况处理
+
+- mac每次push依旧需要密码：将`.git/config`里面的 url ：https 改成git
