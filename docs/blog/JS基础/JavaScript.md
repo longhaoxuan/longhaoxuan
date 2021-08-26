@@ -146,7 +146,7 @@ with(location){
 
 ### 变量作用域和内存问题
 
-原始值（primitive value）~~基本类型值~~：安值引用，基本类型不能添加属性（undefiend,Null,boolean,number,string，symbol)**别着急**
+原始值（primitive value）~~基本类型值~~：按值引用，基本类型不能添加属性（undefiend,Null,boolean,number,string，symbol)**别着急**
 
 引用值（reference value）~~引用类型值~~:是[引用类型](#引用类型)的实例 **引用类型是数据结构**
 
@@ -359,6 +359,61 @@ Class myp{
 )
 }
 ```
+
+## 动画与canvas图型
+
+### requestAnimationFrame
+
+- 参数：下次重绘执行的函数
+- return：请求ID
+- cancelAnimationFrame(id) 取消
+
+#### 节流
+
+浏览器会暴露hook的回调队列在重绘前，队列没有限制
+
+- requestAnimationFrame
+- 标志变量
+- 计时器
+
+```js
+var enabled = true
+
+function a(){
+  console.log(Date.now())
+}
+
+window.addEventListener('scroll',()=>{
+  if(enabled){
+    enabled=false
+    window.requestAnimataionFrame(a)
+    setTimeout(()=>enabled=true,50)
+  }
+}
+```
+
+#### 2D绘图
+
+1. 获取上下文 `canvas.getContext("2d")`
+2. 导出canvas图像toDataURL传入MIME类型`canvas.toDataURL("image/png")`
+3. 左下角为(0,0)  
+4. 填充`fileStyle`与描边`strokeStyle`
+5. 绘制矩形`fillRect()`,`strokeRect()`,`clearRect()`分别是实心、描边、橡皮矩形，4个参数（x，y，宽，高）
+6. 绘制路径
+    arc(x, y, radius, startAngle, endAngle, counterclockwise):以坐标(x, y)为圆 心，以 radius 为半径绘制一条弧线，起始角度为 startAngle，结束角度为 endAngle(都是 弧度)。最后一个参数 counterclockwise 表示是否逆时针计算起始角度和结束角度(默认为 顺时针)。
+    arcTo(x1, y1, x2, y2, radius):以给定半径 radius，经由(x1, y1)绘制一条从上一点 到(x2, y2)的弧线。
+    bezierCurveTo(c1x, c1y, c2x, c2y, x, y):以(c1x, c1y)和(c2x, c2y)为控制点， 绘制一条从上一点到(x, y)的弧线(三次贝塞尔曲线)。
+    lineTo(x, y):绘制一条从上一点到(x, y)的直线。
+    moveTo(x, y):不绘制线条，只把绘制光标移动到(x, y)。
+   quadraticCurveTo(cx, cy, x, y):以(cx, cy)为控制点，绘制一条从上一点到(x, y)
+   的弧线(二次贝塞尔曲线)。
+    rect(x, y, width, height):以给定宽度和高度在坐标点(x, y)绘制一个矩形。这个方法
+   与 strokeRect()和 fillRect()的区别在于，它创建的是一条路径，而不是独立的图形。
+7. sadf
+
+
+   
+
 
 ## 你不知道的js（上）
 
@@ -715,7 +770,6 @@ vue create my-project
 模板文件 单页面文件
 
 #### src目录
-
 
 1. assets/ 静态文件
 2. components/ 组件模块
