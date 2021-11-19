@@ -38,3 +38,19 @@ systemctl restart network
 - ftp、sftp
 - rzsz
 
+## node 安装
+
+- 添加源 `curl -sL https://rpm.nodesource.com/setup_11.x | bash -`
+- yum安装
+
+    ```shell
+    yum install -y nodejs
+    npm install -g n
+    n stable // 升级稳定版
+    reboot
+    npm install -g npm
+    ```
+
+## 安装nginx
+
+yum 

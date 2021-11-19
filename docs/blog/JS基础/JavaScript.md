@@ -294,39 +294,39 @@ console.log(typeof s1) // object
 - Object[详细文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object)
 
 **Object（）每个实力都具有的方法**：
-| 方法 | 描述 |
-| ------ | --------- |
-| constructor | 保存创建当前对象的函数|
-| hasOwnProperty(propertyName) | 检查给定的属性(propertyName)在当前实例中是否存在，不算原型。|
-| isPertotypeOf(object) | 检测传入的对象(object),是否是当前对象的原型。|
-| propertyIsEnumberable(propertyName) | 检测给定的属性(propertyName)能否for in。|
-| toLocaleString() | 返回对象的字符串表示，与执行环境相关。|
-| toString() | 返回对象的字符串表示|
-| toValueOf() | 通常和toString()相同，字符串，数值或布尔值。|
+| 方法                                | 描述                                                         |
+| ----------------------------------- | ------------------------------------------------------------ |
+| constructor                         | 保存创建当前对象的函数                                       |
+| hasOwnProperty(propertyName)        | 检查给定的属性(propertyName)在当前实例中是否存在，不算原型。 |
+| isPertotypeOf(object)               | 检测传入的对象(object),是否是当前对象的原型。                |
+| propertyIsEnumberable(propertyName) | 检测给定的属性(propertyName)能否for in。                     |
+| toLocaleString()                    | 返回对象的字符串表示，与执行环境相关。                       |
+| toString()                          | 返回对象的字符串表示                                         |
+| toValueOf()                         | 通常和toString()相同，字符串，数值或布尔值。                 |
 
 **Object 构造函数的方法**：
 
-| 方法 | 描述 |
-| --------- | --------------------------- |
-| Object.assign()|  通过复制一个或多个对象来创建一个新的对象。|
-| Object.create() | 使用指定的原型对象和属性创建一个新对象。|
-| Object.defineProperty() | 给对象添加一个属性并指定该属性的配置。 |
-| Object.defineProperties() | 给对象添加多个属性并分别指定它们的配置。 |
-| Object.entries() | 返回给定对象自身可枚举属性的 [key, value] 数组。 |
-| Object.freeze() | 冻结对象：其他代码不能删除或更改任何属性。 |
-| Object.getOwnPropertyDescriptor() | 返回对象指定的属性配置。 |
-| Object.getOwnPropertyNames() | 返回一个数组，它包含了指定对象所有的可枚举或不可枚举的属性名。 |
-| Object.getOwnPropertySymbols() | 返回一个数组，它包含了指定对象自身所有的符号属性。 |
-| Object.getPrototypeOf() | 返回指定对象的原型对象。 |
-| Object.is() | 比较两个值是否相同。所有 NaN 值都相等（这与==和===不同）。 |
-| Object.isExtensible() | 判断对象是否可扩展。 |
-| Object.isFrozen() | 判断对象是否已经冻结。 |
-| Object.isSealed() | 判断对象是否已经密封。 |
-| Object.keys() | 返回一个包含所有给定对象自身可枚举属性名称的数组。 |
-| Object.preventExtensions() | 防止对象的任何扩展。 |
-| Object.seal() | 防止其他代码删除对象的属性。 |
-| Object.setPrototypeOf() | 设置对象的原型（即内部 [[Prototype]] 属性）。 |
-| Object.values() | 返回给定对象自身可枚举值的数组。
+| 方法                              | 描述                                                           |
+| --------------------------------- | -------------------------------------------------------------- |
+| Object.assign()                   | 通过复制一个或多个对象来创建一个新的对象。                     |
+| Object.create()                   | 使用指定的原型对象和属性创建一个新对象。                       |
+| Object.defineProperty()           | 给对象添加一个属性并指定该属性的配置。                         |
+| Object.defineProperties()         | 给对象添加多个属性并分别指定它们的配置。                       |
+| Object.entries()                  | 返回给定对象自身可枚举属性的 [key, value] 数组。               |
+| Object.freeze()                   | 冻结对象：其他代码不能删除或更改任何属性。                     |
+| Object.getOwnPropertyDescriptor() | 返回对象指定的属性配置。                                       |
+| Object.getOwnPropertyNames()      | 返回一个数组，它包含了指定对象所有的可枚举或不可枚举的属性名。 |
+| Object.getOwnPropertySymbols()    | 返回一个数组，它包含了指定对象自身所有的符号属性。             |
+| Object.getPrototypeOf()           | 返回指定对象的原型对象。                                       |
+| Object.is()                       | 比较两个值是否相同。所有 NaN 值都相等（这与==和===不同）。     |
+| Object.isExtensible()             | 判断对象是否可扩展。                                           |
+| Object.isFrozen()                 | 判断对象是否已经冻结。                                         |
+| Object.isSealed()                 | 判断对象是否已经密封。                                         |
+| Object.keys()                     | 返回一个包含所有给定对象自身可枚举属性名称的数组。             |
+| Object.preventExtensions()        | 防止对象的任何扩展。                                           |
+| Object.seal()                     | 防止其他代码删除对象的属性。                                   |
+| Object.setPrototypeOf()           | 设置对象的原型（即内部 [[Prototype]] 属性）。                  |
+| Object.values()                   | 返回给定对象自身可枚举值的数组。                               |
 
 ### 2.Array
 
@@ -409,7 +409,7 @@ window.addEventListener('scroll',()=>{
    的弧线(二次贝塞尔曲线)。
     rect(x, y, width, height):以给定宽度和高度在坐标点(x, y)绘制一个矩形。这个方法
    与 strokeRect()和 fillRect()的区别在于，它创建的是一条路径，而不是独立的图形。
-7. sadf
+
 
 
    
