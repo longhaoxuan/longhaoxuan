@@ -2,7 +2,7 @@
 
 ## 安装
 
->我也很服 不同linux也分这么多版本，可是为啥我非要用centos呢？最近的学习效率是真的高，看来写日记才是人生出路。
+> 我也很服 不同linux也分这么多版本，可是为啥我非要用centos呢？最近的学习效率是真的高，看来写日记才是人生出路。
 
 ### ububtu
 
@@ -14,8 +14,9 @@ sudo apt-get install git
 
 如果使用yum install xxxx，会找到安装包之后，询问你Is this OK[y/d/N]，需要你手动进行选择。但是如果加上参数-y，就会自动选择y，不需要你再手动选择！
 yum比rpm高级一次安一套
->yum 包夜
->rpm 一次
+
+- yum 包夜
+- rpm 一次
 
 ```sh
 yum -y install git

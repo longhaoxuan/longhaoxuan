@@ -115,3 +115,6 @@ docs/.vuepress/dist
 .DS_Store?
 
 deploy.sh
+docs/blog/图从引擎/test.html
+docs/blog/图从引擎/three.js
+docs/blog/那些从0说起的故事/图形引擎.md

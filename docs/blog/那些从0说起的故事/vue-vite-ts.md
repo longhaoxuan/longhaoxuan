@@ -15,7 +15,7 @@ npm run dev
 
 ## ts化
 
->傻掉之路开启
+> 傻掉之路开启
 
 - 将`src/main.js`改成`src/main.ts`，然后`index.html` script标签中的文件名配套修改ts
 - 将vue组件内的`<script>`改成`<script lang="ts">`
