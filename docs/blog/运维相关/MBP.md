@@ -28,3 +28,4 @@
 ## 乱七八糟的命令
 
 1. 扫描wifi环境，查看路由器bssid`sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport`
+2. 清华源`https://pypi.tuna.tsinghua.edu.cn/simple`
