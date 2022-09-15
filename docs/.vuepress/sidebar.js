@@ -2,6 +2,8 @@
 const glob = require('glob')
 const blogs = glob.sync("./docs/blog/**/*.md")
 const notes = glob.sync("./docs/note/*.md")
+const python = glob.sync("./docs/python/*.md")
+
 let bloglist = []
 let map = {}
 for (let item of blogs) {
@@ -33,7 +35,16 @@ for (let item of notes) {
     }
 }
 
+let pythonlist = []
+for (let item of python) {
+    if (/([^\/]+)\.md$/g.test(item) == true && RegExp.$1 != 'README') {
+        pythonlist.push(RegExp.$1)
+        // console.log("问题" + RegExp.$1)
+    }
+}
+
 module.exports = {
     '/blog/': bloglist,
-    "/note/": notelist
+    "/note/": notelist,
+    '/python/':pythonlist
 } 

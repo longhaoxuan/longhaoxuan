@@ -18,7 +18,8 @@ module.exports = {
         repo: 'longhaoxuan/blog',
         nav: [
             { text: '博客', link: '/blog/' },
-            { text: '随笔', link: '/note/' }
+            { text: 'Python', link: '/python/' },            
+            // { text: '随笔', link: '/note/' }
         ],
         sidebarDepth: 3,
         sidebar,
