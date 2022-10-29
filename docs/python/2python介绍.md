@@ -21,10 +21,11 @@ print("Hello World")
 新建文件 main.py (.py结尾的文件时python可执行文件)。打开文件输入
 
 ```py
-print("Hello World")
+name = "along"
+print("Hello "+ name)
 ```
 
-打开命令行(vscode的命命令行快捷键ctrl+～复习下) python main.py
+打开命令行(vscode的命命令行快捷键ctrl+～复习下) ```python main.py``` 这里用python调用了main.py的文件。
 
 ## 程序的基本概述（扩展阅读）
 
